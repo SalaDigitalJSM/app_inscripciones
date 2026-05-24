@@ -1,0 +1,295 @@
+/* ============================================================
+   TALLER DE TECNOLOGÍA — Sala Digital José de San Martín
+   styles.css
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue-900: #0d47a1;
+  --blue-800: #1565c0;
+  --blue-600: #1e88e5;
+  --blue-100: #e3f2fd;
+  --blue-50:  #f0f7ff;
+  --white:    #ffffff;
+  --gray-50:  #f8fafc;
+  --gray-200: #e2e8f0;
+  --gray-400: #94a3b8;
+  --gray-700: #334155;
+  --gray-900: #0f172a;
+  --danger:   #dc2626;
+}
+
+html {
+  width: 100%;
+  min-width: 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: #ece9f8;
+  font-family: 'Lato', sans-serif;
+  color: var(--gray-900);
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ── Card ── */
+.card {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: var(--white);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+@media (min-width: 680px) {
+  body {
+    padding: 32px 16px 48px;
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    max-width: 640px;
+    border-radius: 16px;
+    min-height: unset;
+    box-shadow: 0 4px 24px rgba(13,71,161,0.13);
+    margin: 0 auto;
+  }
+}
+
+/* ── Header ── */
+.card-header {
+  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 55%, var(--blue-600) 100%);
+  padding: 32px 20px 28px;
+  text-align: center;
+  position: relative;
+}
+.card-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 20px;
+  background: var(--white);
+  border-radius: 20px 20px 0 0;
+}
+.logo-wrap {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 4px;
+  background: rgba(255,255,255,0.2);
+  margin-bottom: 10px;
+}
+.logo-wrap img {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid rgba(255,255,255,0.65);
+}
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+.header-sub {
+  font-size: 13px;
+  color: #bbdefb;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* ── Contador ── */
+.counter-bar {
+  margin: 20px 16px 0;
+  background: var(--blue-50);
+  border: 1.5px solid var(--blue-100);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.counter-icon {
+  width: 38px; height: 38px; min-width: 38px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+  display: flex; align-items: center; justify-content: center;
+}
+.counter-icon svg { width: 19px; height: 19px; fill: white; }
+.counter-text { flex: 1; min-width: 0; }
+.counter-label {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--gray-400); margin-bottom: 1px;
+}
+.counter-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: var(--blue-900); font-weight: 600;
+}
+.counter-value span { font-size: 26px; }
+.counter-pill {
+  background: var(--blue-900); color: white;
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 13px;
+  font-weight: 700; white-space: nowrap; flex-shrink: 0;
+}
+.counter-pill.warning { background: #e65100; }
+.counter-pill.danger  { background: var(--danger); }
+
+.progress-wrap {
+  margin: 7px 16px 0;
+  height: 5px; background: var(--blue-100);
+  border-radius: 99px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-800), var(--blue-600));
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Formulario ── */
+.form-section { padding: 20px 18px 28px; }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--blue-900);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title::after {
+  content: ''; flex: 1; height: 1.5px;
+  background: linear-gradient(90deg, var(--blue-100), transparent);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.field-full { grid-column: 1; }
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label {
+  font-size: 13px;
+  font-weight: 700; letter-spacing: 0.7px;
+  text-transform: uppercase; color: var(--gray-700);
+}
+.field label .req { color: var(--danger); margin-left: 2px; }
+
+.field input {
+  height: 54px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 0 16px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: var(--gray-900);
+  background: var(--gray-50);
+  width: 100%;
+  outline: none;
+  -webkit-appearance: none; appearance: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.field input:focus {
+  border-color: var(--blue-600);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(30,136,229,0.13);
+}
+.field input.error {
+  border-color: var(--danger);
+  background: #fff5f5;
+}
+input[type="date"] { -webkit-appearance: none; appearance: none; }
+
+.field .err-msg {
+  font-size: 13px; color: var(--danger);
+  min-height: 14px; font-weight: 600;
+}
+
+/* ── Botón ── */
+.btn-submit {
+  margin-top: 20px; width: 100%; height: 58px;
+  background: linear-gradient(135deg, var(--blue-900), var(--blue-600));
+  color: white; border: none; border-radius: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  box-shadow: 0 3px 14px rgba(13,71,161,0.28);
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity .2s, transform .15s;
+}
+.btn-submit:active:not(:disabled) { transform: scale(0.97); opacity: 0.88; }
+.btn-submit:disabled {
+  background: var(--gray-200); color: var(--gray-400);
+  box-shadow: none; cursor: not-allowed;
+}
+
+/* ── Spinner ── */
+.spinner {
+  width: 18px; height: 18px;
+  border: 2.5px solid rgba(255,255,255,0.35);
+  border-top-color: white; border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Toast ── */
+#toast {
+  position: fixed; top: 14px; left: 50%;
+  transform: translateX(-50%) translateY(-120px);
+  width: calc(100% - 24px); max-width: 560px;
+  padding: 13px 16px; border-radius: 11px;
+  font-size: 15px; font-weight: 600;
+  display: flex; align-items: flex-start; gap: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1), opacity .3s;
+  opacity: 0; z-index: 9999; pointer-events: none;
+}
+#toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+#toast.success { background: #dcfce7; color: #14532d; border: 1.5px solid #86efac; }
+#toast.error   { background: #fee2e2; color: #7f1d1d; border: 1.5px solid #fca5a5; }
+#toast.warning { background: #fef9c3; color: #713f12; border: 1.5px solid #fde047; }
+.toast-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+#toast-msg { line-height: 1.4; }
+
+/* ── Sin cupos ── */
+#no-cupos {
+  display: none; padding: 44px 20px;
+  text-align: center;
+}
+.no-cupos-icon {
+  width: 68px; height: 68px; background: #fee2e2;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px; font-size: 32px;
+}
+#no-cupos h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  color: var(--danger); margin-bottom: 8px;
+}
+#no-cupos p { font-size: 14px; color: var(--gray-700); line-height: 1.6; }
+
+/* ── Footer ── */
+.card-footer {
+  padding: 12px 16px;
+  background: var(--blue-50);
+  border-top: 1px solid var(--blue-100);
+  text-align: center;
+  font-size: 11px;
+  color: var(--gray-400);
+}
